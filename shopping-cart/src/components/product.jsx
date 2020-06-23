@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
+import { addToCart } from '../Redux/action'
+import { connect } from 'react-redux'
 
 export class Product extends Component {
     render() {
-        const {data}  = this.props
+        const {data, addToCart, cartList}  = this.props
+        console.log(cartList)
         return (
             <div style={{border:"1px solid black"}}>
                 <div>
@@ -13,19 +15,23 @@ export class Product extends Component {
                 <div>{data.price}</div>
                 <div>{data.description}</div>
                 <div>{data.stock}</div>
+                <div>
+                    <button onClick={() => addToCart(data.id)}>Add To Cart</button>
+                </div>
             </div>
         )
     }
 }
 
-// const mapStateToProps = (state) => ({
-//     productList: state.productList
-// })
+const mapStateToProps = (state) => ({
+    productList: state.productList,
+    cartList: state.cartList
+})
 
-// const mapDispatchToProps = {
-    
-// }
+const mapDispatchToProps = dispatch => ({
+    addToCart: payload => dispatch(addToCart(payload))
+})
 
-// export default connect(mapStateToProps, null)(product)
+export default connect(mapStateToProps, mapDispatchToProps)(Product)
 
-export default Product
+// export default Product
