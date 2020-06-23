@@ -4,7 +4,7 @@ import React from 'react';
 function App() {
   return (
     <div >
-       This is shopping cart
+       This is shopping 
     </div>
   );
 }
