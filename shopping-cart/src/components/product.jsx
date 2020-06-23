@@ -5,17 +5,14 @@ export class Product extends Component {
     render() {
         const {data}  = this.props
         return (
-            <div>
-                {/* {productList?.map(item => <div key={itemm.id}></div>)} */}
+            <div style={{border:"1px solid black"}}>
                 <div>
-                    <div>
-                        <img src={data.mainImage} />
-                    </div>
-        <div>{data.productName}</div>
-        <div>{data.price}</div>
-        <div>{data.description}</div>
-        <div>{data.stock}</div>
+                    <img className="img-fluid" width="100" height="100" src={data.mainImage} />
                 </div>
+                <div>{data.productName}</div>
+                <div>{data.price}</div>
+                <div>{data.description}</div>
+                <div>{data.stock}</div>
             </div>
         )
     }

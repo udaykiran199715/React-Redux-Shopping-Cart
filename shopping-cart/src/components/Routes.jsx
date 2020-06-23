@@ -1,15 +1,18 @@
-import React from 'react'
-import Home from './Home'
+// import { Switch, Route } from "react-router-dom";
+// import React from 'react'
+// import Home from './Home'
 
-export default function Routes() {
-    return (
-        <div>
-            <Routes path='/' render= {() => <div><Home /></div>} />
-            <Routes path='/addProduct' render= {() => <div>add product</div>}/>
-            <Routes path='/cart' render= {() => <div>cart</div>}/>
-            <Routes path='/orders' render= {() => <div>orders</div>}/>
-            <Routes path='/product/:id' render= {() => <div> product</div>}/>
-            <Routes path='/login' render= {() => <div>login</div>}/>
-        </div>
-    )
-}
+// export default function Routes() {
+//     return (
+//         <div>
+//             <Switch>
+//                 <Route path='/' exact component={ <Home />} />
+//                 {/* <Route path='/addProduct' exact render= {() => <div>add product</div>}/>
+//                 <Route path='/cart' exact render= {() => <div>cart</div>}/>
+//                 <Route path='/orders' exact render= {() => <div>orders</div>}/>
+//                 <Route path='/product/:id'exact render= {() => <div> product</div>}/>
+//                 <Route path='/login' exact render= {() => <div>login</div>}/> */}
+//             </Switch>
+//         </div>
+//     )
+// }

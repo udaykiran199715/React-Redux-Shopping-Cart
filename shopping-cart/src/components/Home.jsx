@@ -2,26 +2,28 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Product from './product'
+import data from '../data.json'
 
 class Home extends Component {
     render() {
-        let {productList} = this.props
+        // let {productList} = this.props
+        console.log(data)
         return (
-            <div>
-                <Link to='/'>
-                    {productList?.map(item => <Product data={item} />)}
-                </Link>
+            <div className="mt-5">
+                {
+                    data.map(ele=>
+                        <Product key={ele.id}  data={ele} />
+                    )
+                }
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => ({
-    productList: state.productList
-})
+// const mapStateToProps = (state) => ({
+//     productList: state.productList
+// })
 
-// const mapDispatchToProps = {
-    
-// }
+// export default connect(mapStateToProps, null)(Home)
+export default Home
 
-export default connect(mapStateToProps, null)(Home)
