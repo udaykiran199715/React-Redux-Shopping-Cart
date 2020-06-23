@@ -1,4 +1,4 @@
-import {ADD_TO_CART,PLACE_ORDER} from './actionTypes'
+import {ADD_TO_CART,PLACE_ORDER, QTY_INC, QTY_DEC, ADD_PRODUCT, EDIT_PRODUCT} from './actionTypes'
 import data from '../data.json'
 // console.log(data)
 
@@ -42,6 +42,37 @@ const reducer = (state= initState , {type, payload}) => {
                     orderList:[...state.orderList, payload]
                }
           }
+
+          case QTY_INC : {
+                
+               return {
+                   ...state,
+                   cartList: state.cartList.map(item => item.id == payload ? {...item , qty:item.qty+1} : item)
+               }
+          }
+
+          case QTY_DEC : {
+                
+               return {
+                   ...state,
+                   cartList: state.cartList.filter(item => item.qty > 1 && item).map(item => item.id == payload ? {...item , qty:item.qty - 1} : item)
+               }
+          }
+          
+          case ADD_PRODUCT: {
+               let id = state.productsList[state.productsList.length-1].id + 1
+               return {
+                    ...state,
+                    productsList: [...state.productsList, {...payload, id}]
+               }
+          }
+          case EDIT_PRODUCT: {
+               return {
+                    ...state,
+                    productsList: state.productsList.map(item => item.id === payload.id ? item = payload : item)
+               }
+          }
+
           default:
               return { ...state }
      
